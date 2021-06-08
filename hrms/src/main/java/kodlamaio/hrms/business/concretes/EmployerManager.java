@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.AuthenticationService;
 import kodlamaio.hrms.business.abstracts.EmployerService;
+import kodlamaio.hrms.business.abstracts.JobAdvertService;
 import kodlamaio.hrms.core.utilities.result.DataResult;
 import kodlamaio.hrms.core.utilities.result.ErrorDataResult;
 import kodlamaio.hrms.core.utilities.result.ErrorResult;
@@ -13,17 +14,22 @@ import kodlamaio.hrms.core.utilities.result.Result;
 import kodlamaio.hrms.core.utilities.result.SuccessDataResult;
 import kodlamaio.hrms.core.utilities.result.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.EmployerDao;
+import kodlamaio.hrms.dataAccess.abstracts.JobAdvertDao;
 import kodlamaio.hrms.entities.concretes.Employer;
+import kodlamaio.hrms.entities.concretes.JobAdvert;
 import kodlamaio.hrms.entities.concretes.JobSeeker;
+
 
 @Service
 public class EmployerManager implements EmployerService {
 	EmployerDao employerDao;
+	
     AuthenticationService authenticationService;
 	public EmployerManager(EmployerDao employerDao,AuthenticationService authenticationService ) {
 		super();
 		this.employerDao = employerDao;
 		this.authenticationService=authenticationService;
+		
 	}
 
 	@Override
@@ -111,6 +117,13 @@ public class EmployerManager implements EmployerService {
 		
 		
 	}
+
+	
+
+	//@Override
+	//public Result addJobAdvert(JobAdvert jobAdvert) {
+		//return this.jobAdvertService.add(jobAdvert);
+	//}
 
 	
 

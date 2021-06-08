@@ -46,6 +46,7 @@ public class JobSeekerManager implements JobSeekerService {
 
 	@Override
 	public Result add(JobSeeker jobSeeker) throws RemoteException {
+		System.out.println(jobSeeker.getIdentityNo());
 		if(!checkAllNull(jobSeeker)) {
 			
 			return new ErrorResult("All fields are obligatory.");
@@ -60,9 +61,9 @@ public class JobSeekerManager implements JobSeekerService {
 		   
 	    	return new ErrorResult("This email is used.");
 	    }
-		 if(getByIdentityNo(jobSeeker.getIdentityNo()).isSuccess()==true) {
+		if(getByIdentityNo(jobSeeker.getIdentityNo()).isSuccess()==true) {
 			 
-	    	return new ErrorResult("This identity nuöber is used" );
+	    	return new ErrorResult("This identity number is used" );
 	    }
 	    
 	    
@@ -94,6 +95,9 @@ public class JobSeekerManager implements JobSeekerService {
 			
 			return false;
 		}
+		else if(jobSeeker.getIdentityNo()=="") {
+			return false;
+		}
 		
 		else if(jobSeeker.getEmail()=="") {
 			
@@ -107,10 +111,7 @@ public class JobSeekerManager implements JobSeekerService {
 			
 			return false;
 		}
-		else if (jobSeeker.getUser_id()==0) {
-			
-			return false;
-		}else {
+		else {
 		
 			return true;
 		}
