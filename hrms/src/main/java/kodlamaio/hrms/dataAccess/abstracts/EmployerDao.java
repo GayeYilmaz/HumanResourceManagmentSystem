@@ -8,8 +8,6 @@ import kodlamaio.hrms.entities.concretes.Employer;
 import kodlamaio.hrms.entities.concretes.JobAdvert;
 
 
-
-
 public interface EmployerDao extends JpaRepository<Employer,Integer> {
 	Employer getByEmail(String email);
     //JobAdvert addJobAdvert(JobAdvert jobAdvert);
